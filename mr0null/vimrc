@@ -1,0 +1,40 @@
+set backspace=start,eol,indent
+set number
+set cindent
+set guifont=:h14
+"set foldmethod=indent
+"set foldignore=
+syntax on
+set mouse=a
+set ts=4
+set sw=4
+set t_Co=256
+set clipboard=unnamed
+colorscheme molokai
+set makeprg=g++\ -g\ -O2\ --std=c++11\ %\ &&\ time\ ./a.out
+
+map <C-a> ggyG
+vmap <C-c> y
+map <C-v> p
+map <C-z> :u<CR>
+"map <C-q> :q<CR>
+map <S-q> :wq<CR>
+map <S-w> :q!<CR>
+map <S-s> :w<CR>
+map <S-r> :w<bar>SCCompileRun<CR>
+map <F2> :call Cp()<Enter>ggdd20Gi
+map <F3> :s/^/\/\//<Enter>
+map <F4> :s/\/\///<Enter>
+call togglebg#map("<F5>")
+map <F6> =gg=G
+
+"let g:SingleCompile_silentcompileifshowquickfix = 1
+"let g:SingleCompile_showresultafterrun = 1
+let g:SingleCompile_showquickfixiferror = 0
+call SingleCompile#SetCompilerTemplate('cpp', 'gcc49', 'g++49', 'g++-4.9', '--std=c++11 -Wall -Wextra', 'time ./a.out')
+call SingleCompile#SetOutfile('cpp', 'gcc49', 'a.out')
+call SingleCompile#ChooseCompiler('cpp', 'gcc49')
+
+function Cp()
+	:read ~/newtemplate.cpp
+endfunction
