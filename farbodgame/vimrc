@@ -1,0 +1,38 @@
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Enable syntax highlighting
+syntax enable
+
+" Color Scheme
+colorscheme monokai
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+" set numbers in left side
+set number
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" Turn on the WiLd menu
+set wildmenu
+
+" Auto-complete for Php!
+set omnifunc=phpcomplete#CompletePHP
+
+" Display name of opened file in Terminal title
+autocmd BufEnter * let &titlestring = ' ' . expand("%:t")             
+set title
