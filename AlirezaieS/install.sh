@@ -18,3 +18,4 @@ else
     cp -r vim ~/.vim
     cp vimpkg ~/.vimpkg
     echo "Install Complete"
+fi
