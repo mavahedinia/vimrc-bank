@@ -1,5 +1,11 @@
-Hide all files by adding a `.` at the beginnig of the file names eg. `.vimrc`
+##Vimrc
 
-link the bundle file into the `.vim` directory
+This is my vimrc and config
 
-Install `apt-vim`
+clone this repository and use `install.sh`
+
+##Usage
+
+for open/close NERDTree use `Ctrl + n`
+
+To switch between open buffers use `F2` and `F3`
