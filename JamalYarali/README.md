@@ -36,9 +36,13 @@ Then run `:PlugInstall` in vim command mode.
 ###### Shortcut Keys: ######
 
 `F4`        : NERDTreeToggle
+
 `<C-Right>` : tabn
+
 `<C-Left>`  : tabp
+
 `<C-n>`     : tabnew
+
 `<Tab>`     : emmet_expandabbr_key,emmet#expandAbbrIntelligent
 
 
