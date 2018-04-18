@@ -1,4 +1,4 @@
-####A vimrc for Web (HTML,CSS) and Python Developers####
+#### A vimrc for Web (HTML,CSS) and Python Developers ####
 
 Please be advised you need to install VimPlug (vim plugin manager) before using this vimrc:
 ```
@@ -11,7 +11,7 @@ Then run `:PlugInstall` in vim command mode.
 ====================================================================
 
 
-######Installed Plugins:######
+###### Installed Plugins: ######
 
 * THE NERDTREE
 * VIM-AIRLINE
@@ -33,7 +33,7 @@ Then run `:PlugInstall` in vim command mode.
 =====================================================================
 
 
-######Shortcut Keys:######
+###### Shortcut Keys: ######
 
 `F4`        : NERDTreeToggle
 `<C-Right>` : tabn
