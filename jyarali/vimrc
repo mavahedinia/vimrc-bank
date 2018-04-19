@@ -1,0 +1,66 @@
+set number
+set showcmd 
+filetype indent on
+set nocompatible
+set nopaste
+set omnifunc=csscomplete#CompleteCSS
+set omnifunc=htmlcomplete#CompleteTags
+set shiftwidth=4
+set expandtab
+set wildmenu
+set showcmd
+set hlsearch
+set termbidi
+syntax on
+set ruler
+set mouse=a
+set t_Co=256
+
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'enricobacis/vim-airline-clock'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ajmwagar/vim-deus'
+Plug 'klen/python-mode'
+Plug 'davidhalter/jedi-vim'
+Plug 'mattn/emmet-vim'
+Plug 'alvan/vim-closetag'
+Plug 'vim-scripts/AutoComplPop'
+Plug 'honza/vim-snippets'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'tpope/vim-haml'
+Plug 'terryma/vim-multiple-cursors'
+call plug#end()
+
+
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <F4> :NERDTreeToggle<CR>
+let g:airline#extensions#clock#format = '%H:%M:%S'
+let g:airline#extensions#clock#updatetime = 1000
+map <C-Right> :tabn<CR>
+map <C-Left> :tabp<CR>
+map <C-n> :tabnew<CR>
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+colorscheme deus
+let g:pymode_python = 'python3'
+let g:user_emmet_expandabbr_key='<Tab>'
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+" vim-airline
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
