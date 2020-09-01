@@ -22,9 +22,14 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 
-" Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
-set omnifunc=pythoncomplete#Complete
-inoremap <Nul> <C-x><C-o>
+" Folding code
+set foldmethod=indent
+set foldlevel=1
+nnoremap <space> za
+
+"" Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
+"set omnifunc=pythoncomplete#Complete
+"inoremap <Nul> <C-x><C-o>
 
 " Wrap at 72 chars for comments.
 set formatoptions=cq textwidth=72 foldignore= wildignore+=*.py[co]
@@ -48,8 +53,8 @@ import os
 import sys
 import vim
 for p in sys.path:
-	if os.path.isdir(p):
-		vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+    if os.path.isdir(p):
+        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
 EOF
 
 " Generate tags with: ctags -R -f ~/.vim/tags/python24.ctags /usr/lib/python2.4/
@@ -66,9 +71,9 @@ set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 python3 << EOL
 import vim
 def EvaluateCurrentRange():
-	eval(compile('\n'.join(vim.current.range),'','exec'),globals())
+    eval(compile('\n'.join(vim.current.range),'','exec'),globals())
 EOL
-map <C-h> :py EvaluateCurrentRange()
+"map <C-h> :py EvaluateCurrentRange()
 
 " Use <F5> to execute code and <S-F5> to execute it with value.
 python3 << EOL
@@ -81,6 +86,9 @@ map <S-F5> :py EvaluateCurrentRange()
 
 " Use <F9> to save and execute it in terminal.
 map <F9> :w<CR>:!python3 %<CR>
+
+" Use <S-F9> to save and execute it in terminal.
+map <S-F9> :w<CR>:!python3 % 
 
 " Use F7/Shift-F7 to add/remove a breakpoint (pdb.set_trace)
 " Totally cool.
@@ -103,7 +111,7 @@ def SetBreakpoint():
         vim.current.buffer.append( 'import pdb', 0)
         vim.command( 'normal j1')
 
-vim.command( 'map <f7> :py SetBreakpoint()<cr>')
+vim.command( 'map <f7> :python3 SetBreakpoint()<cr>')
 
 def RemoveBreakpoints():
     import re
@@ -127,7 +135,7 @@ def RemoveBreakpoints():
 
     vim.command( "normal %dG" % nCurrentLine)
 
-vim.command( "map <s-f7> :py RemoveBreakpoints()<cr>")
+vim.command( "map <s-f7> :python3 RemoveBreakpoints()<cr>")
 EOF
 "vim:syntax=vim
 
