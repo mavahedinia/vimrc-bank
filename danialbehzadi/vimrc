@@ -1,6 +1,3 @@
-call pathogen#infect()
-call pathogen#helptags()
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -28,6 +25,11 @@ set showcmd
 " Show matching brackets
 set showmatch
 
+" Support BiDi
+set termbidi
+
+" Let buffers move without save
+set hidden
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -71,6 +73,13 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Firefox style buffer navigation
+nnoremap <C-PageUp> :bp<CR>
+inoremap <C-PageUp> <Esc>:bp<CR>i
+nnoremap <C-PageDown> :bn<CR>
+inoremap <C-PageDown> <Esc>:bn<CR>i
+nnoremap <C-w> <Esc>:bd<CR>
+
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
@@ -88,7 +97,7 @@ set viminfo^=%
 " => Status line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Always show the status line
-"set laststatus=2
+set laststatus=2
 
 " Format the status line
 "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
@@ -110,6 +119,18 @@ set viminfo^=%
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <F12> :NERDTreeToggle<CR>
+" open NERDTree automatically when vim starts up on opening a directory
+
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+"
+"close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Specific
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !exists("autocommands_loaded")
@@ -117,3 +138,4 @@ if !exists("autocommands_loaded")
 	" Python
 	autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/python
 endif
+au BufNewFile *.py 0r ~/.vim/skeleton.py
