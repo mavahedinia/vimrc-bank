@@ -32,31 +32,31 @@ A vimconfig for web development (python, html, css, js, php)
 * YouCompleteMe
 
 ## Oter
-install pytlin -
-install flake8 -
+* install pytlin -
+* install flake8 -
 
 ## Shortcut keys
-run python file : ```` Shift-P ````
-stop running proses : ```` Shift-S ````
-togle nerdtree : ```` F2 ````
-close buffer : ```` F3 ````
-next tab : ```` Ctrl-right ````
-tab previous : ```` Ctrl-left ````
-open below terminal : ```` F4 ````
-show all files on the directory : ```` Shift-B ````
-show all buffers ```` Shift-B ````
-undo : ```` Shift-U ````
-redo : ```` Shift-R ````
-togle tagbar : ```` Shift-t ````
-open settings : ```` Ctrl-s ````
-commands : ```` Ctrl-p / Ctrl-Shift-P ````
+* run python file : ```` Shift-P ````
+* stop running proses : ```` Shift-S ````
+* togle nerdtree : ```` F2 ````
+* close buffer : ```` F3 ````
+* next tab : ```` Ctrl-right ````
+* tab previous : ```` Ctrl-left ````
+* open below terminal : ```` F4 ````
+* show all files on the directory : ```` Shift-B ````
+* show all buffers ```` Shift-B ````
+* undo : ```` Shift-U ````
+* redo : ```` Shift-R ````
+* togle tagbar : ```` Shift-t ````
+* open settings : ```` Ctrl-s ````
+* commands : ```` Ctrl-p / Ctrl-Shift-P ````
 
 ## text
 select your text
 
-Shift-tab
-Tab
-Shift-left
-Shift-right
+* Shift-tab
+* Tab
+* Shift-left
+* Shift-right
 
 ## And etc ...
