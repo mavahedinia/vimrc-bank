@@ -31,6 +31,7 @@ set termbidi
 " Let buffers move without save
 set hidden
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,15 +64,14 @@ set ai "Auto indent
 "set si "Smart indent
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
 
 " Firefox style buffer navigation
 nnoremap <C-PageUp> :bp<CR>
@@ -92,6 +92,7 @@ autocmd BufReadPost *
 
 " Remember info about open buffers on close
 set viminfo^=%
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
@@ -129,6 +130,7 @@ map <F12> :NERDTreeToggle<CR>
 "
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Specific
