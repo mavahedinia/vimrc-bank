@@ -81,8 +81,8 @@ import vim
 def EvaluateCurrentBuffer():
 	eval(compile('\n'.join(vim.current.buffer),'','exec'),globals())
 EOL
-map <F5> :py EvaluateCurrentBuffer()<CR>
-map <S-F5> :py EvaluateCurrentRange()
+map <F5> :python3 EvaluateCurrentBuffer()<CR>
+map <S-F5> :python3 EvaluateCurrentRange()
 
 " Use <F9> to save and execute it in terminal.
 map <F9> :w<CR>:!python3 %<CR>
